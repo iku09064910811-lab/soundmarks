@@ -1,26 +1,5 @@
-const albums = [
-  {
-    title: "OK Computer",
-    artist: "Radiohead",
-    year: 1997,
-    rating: 4.6,
-    cover: "https://placehold.co/400x400?text=OK+Computer",
-  },
-  {
-    title: "Ants From Up There",
-    artist: "Black Country, New Road",
-    year: 2022,
-    rating: 4.5,
-    cover: "https://placehold.co/400x400?text=Ants+From+Up+There",
-  },
-  {
-    title: "our hope",
-    artist: "羊文学",
-    year: 2022,
-    rating: 4.3,
-    cover: "https://placehold.co/400x400?text=our+hope",
-  },
-];
+import Link from "next/link";
+import { albums } from "../data/albums";
 
 export default function Home() {
   return (
@@ -111,14 +90,17 @@ export default function Home() {
                   {album.artist}・{album.year}
                 </p>
 
-                <div className="mt-4 flex items-center justify-between">
+                                <div className="mt-4 flex items-center justify-between">
                   <span className="text-amber-400">
                     ★ {album.rating}
                   </span>
 
-                  <button className="rounded-full border border-zinc-700 px-4 py-2 text-sm hover:bg-zinc-800">
+                  <Link
+                    href={`/album/${album.id}`}
+                    className="rounded-full border border-zinc-700 px-4 py-2 text-sm hover:bg-zinc-800"
+                  >
                     詳細を見る
-                  </button>
+                  </Link>
                 </div>
               </div>
             </article>
